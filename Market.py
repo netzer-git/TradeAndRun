@@ -20,15 +20,6 @@ class Market:
         if not new_order:
             return
 
-        # checks if the order is bidding and if the worst\cheapest ask is willing to pay more
-        if new_order.otype == 'bid' and self.lob.get_edge_asks()[0] <= new_order.price:
-            for a in self.lob.asks:
-                # go through the asks and find the best ask that works for the bid
-                pass
-        elif new_order.otype == "ask" and self.lob.get_edge_bids()[-1] >= new_order.price:
-            for b in self.lob.bids:
-                pass
-
     def run_market(self):
         while self.current_cycle <= self.last_cycle:
             self.run_day()
